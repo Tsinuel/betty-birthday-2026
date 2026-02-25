@@ -364,6 +364,177 @@ body {
 }
 
 /* ============================================================
+   OUR STORY — TIMELINE
+   ============================================================ */
+#story {
+  background:
+    radial-gradient(ellipse at 80% 20%, #2a0810 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, #1e0818 0%, transparent 55%),
+    var(--bg);
+  border-top: 1px solid rgba(201, 169, 110, 0.12);
+}
+
+.timeline {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+}
+
+/* Vertical gold line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201, 169, 110, 0.5) 8%,
+    rgba(201, 169, 110, 0.5) 92%,
+    transparent
+  );
+}
+
+/* Each milestone row */
+.tl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.tl-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternate left/right layout on wide screens */
+@media (min-width: 640px) {
+  .tl-item:nth-child(odd) {
+    flex-direction: row;
+    text-align: left;
+  }
+  .tl-item:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  .tl-item:nth-child(even) .tl-map-link {
+    justify-content: flex-end;
+  }
+}
+
+/* Center dot / icon */
+.tl-marker {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(139, 26, 58, 0.3);
+  transition: border-color var(--transition), box-shadow var(--transition);
+
+  /* Keep it centered on the vertical line */
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .tl-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.1rem;
+  }
+
+  .tl-item:nth-child(odd)  .tl-content { margin-left: calc(50% + 2.5rem); }
+  .tl-item:nth-child(even) .tl-content { margin-right: calc(50% + 2.5rem); width: calc(50% - 2.5rem); }
+  .tl-item:nth-child(odd)  .tl-content { width: calc(50% - 2.5rem); }
+}
+
+.tl-item:hover .tl-marker {
+  border-color: var(--gold);
+  box-shadow: 0 0 30px rgba(201, 169, 110, 0.35);
+}
+
+/* Content card */
+.tl-content {
+  flex: 1;
+  background: rgba(139, 26, 58, 0.08);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.tl-item:hover .tl-content {
+  border-color: rgba(201, 169, 110, 0.35);
+  background: rgba(139, 26, 58, 0.14);
+}
+
+.tl-date {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+  font-style: normal;
+  font-family: var(--font-serif);
+}
+
+.tl-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.tl-body {
+  font-size: clamp(0.88rem, 1.8vw, 1rem);
+  color: var(--rose);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.tl-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  padding-bottom: 1px;
+  transition: border-color var(--transition), color var(--transition);
+  font-style: normal;
+}
+
+.tl-map-link:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+/* ============================================================
    PLACEHOLDER SECTIONS (temporary styling)
    ============================================================ */
 .section-placeholder {
