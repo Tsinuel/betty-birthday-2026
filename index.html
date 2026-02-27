@@ -15,6 +15,65 @@
 <body>
 
   <!-- ============================================================
+       ENTRANCE OVERLAY — Music starts here
+  ============================================================ -->
+  <div id="entrance-overlay">
+    <div class="entrance-content">
+      <p class="entrance-amharic">❤️ ምርቃቴ ❤️</p>
+      <h1 class="entrance-title">Betty</h1>
+      <div class="entrance-divider">
+        <span class="divider-line"></span>
+        <span class="divider-icon">✦</span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="entrance-subtitle">A Birthday Celebration</p>
+      <button id="entrance-btn" class="entrance-button">
+        <span class="btn-icon">🎵</span>
+        <span class="btn-text">Begin the Journey</span>
+      </button>
+      <p class="entrance-hint">With music</p>
+    </div>
+  </div>
+
+  <!-- Background audio player (hidden) -->
+  <audio id="bg-music" loop>
+    <source src="music/background.mp3" type="audio/mpeg">
+    <source src="music/background.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- Floating music control -->
+  <button id="music-toggle" class="music-toggle hidden" aria-label="Toggle music">
+    <span class="music-toggle-icon">🎵</span>
+  </button>
+
+  <!-- ============================================================
+       BIRTHDAY LOCK — Shows teaser until March 2, 2026
+  ============================================================ -->
+  <div id="birthday-lock" class="birthday-lock hidden">
+    <div class="lock-content">
+      <div class="lock-icon">🎂</div>
+      <p class="lock-amharic">❤️ ምርቃቴ ❤️</p>
+      <h2 class="lock-title">Almost There...</h2>
+      <div class="lock-divider">
+        <span class="divider-line"></span>
+        <span class="divider-icon">✦</span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="lock-message">
+        I've prepared something special for you, my love. But you'll have to wait just a little longer...
+      </p>
+      <div class="lock-countdown">
+        <div class="lock-countdown-display">
+          <span id="lock-days">--</span> days until your birthday
+        </div>
+      </div>
+      <p class="lock-hint">
+        Come back on March 2nd to see what's waiting for you 🌹
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
        SECTION 1 · HERO
   ============================================================ -->
   <section id="hero">
@@ -155,6 +214,10 @@
               We went from two people who met by chance to two souls choosing each other, on purpose,
               for ever.
             </p>
+            <div class="tl-photo">
+              <img src="photos/My favorite pic of Betty from her engagement party.JPG" alt="Betty at engagement party" loading="lazy" />
+              <p class="tl-photo-caption">Radiant at your engagement party ✨</p>
+            </div>
           </div>
         </div>
 
@@ -171,6 +234,10 @@
               and you became my wife — ❤️ ምርቃቴ ❤️ — is the most cherished day of my life.
               Every vow I made to you, I mean with everything I am.
             </p>
+            <div class="tl-photo">
+              <img src="photos/The two of us - laughing out loud - in our wedding attires.png" alt="Us laughing on our wedding day" loading="lazy" />
+              <p class="tl-photo-caption">Pure joy on our special day 💕</p>
+            </div>
           </div>
         </div>
 
@@ -196,10 +263,80 @@
   </section>
 
   <!-- ============================================================
-       SECTION 4 · PHOTO GALLERY  (placeholder)
+       SECTION 4 · PHOTO GALLERY
   ============================================================ -->
-  <section id="gallery" class="section-placeholder">
-    <p>📸 Photo Gallery — coming soon</p>
+  <section id="gallery">
+    <div class="section-inner">
+      <p class="section-subtitle" data-reveal>Captured Moments</p>
+      <h2 class="section-title" data-reveal>Our Gallery</h2>
+      <div class="gold-rule" data-reveal></div>
+
+      <div class="masonry-grid" data-reveal>
+        
+        <!-- Photo 1 -->
+        <div class="gallery-item">
+          <img src="photos/Betty - looking like a queen that she is - studio picture.png" alt="Betty studio portrait" loading="lazy" />
+          <div class="gallery-caption">
+            <p>A queen in every frame 👑</p>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="gallery-item">
+          <img src="photos/My bride - wedding pictures - just Betty.png" alt="Betty on our wedding day" loading="lazy" />
+          <div class="gallery-caption">
+            <p>My beautiful bride ✨</p>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="gallery-item">
+          <img src="photos/Me - smelling her hair.png" alt="Intimate moment" loading="lazy" />
+          <div class="gallery-caption">
+            <p>These little moments 💕</p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="gallery-item">
+          <img src="photos/The two of us in a cafe.jpg" alt="Together at a cafe" loading="lazy" />
+          <div class="gallery-caption">
+            <p>Coffee & conversation ☕</p>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="gallery-item">
+          <img src="photos/Going home from our wedding day in a car showing our rings to the camera.jpg" alt="Our wedding rings" loading="lazy" />
+          <div class="gallery-caption">
+            <p>Forever begins 💍</p>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="gallery-item">
+          <img src="photos/Another picture of hers that I love so much.jpg" alt="Betty" loading="lazy" />
+          <div class="gallery-caption">
+            <p>One of my favorites 💖</p>
+          </div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="gallery-item">
+          <img src="photos/Just a beautiful picture she took of herself in a hotel.jpg" alt="Betty at hotel" loading="lazy" />
+          <div class="gallery-caption">
+            <p>Simply beautiful 🌹</p>
+          </div>
+        </div>
+
+        <!-- Add more photos here as needed -->
+
+      </div>
+
+      <p class="gallery-note" data-reveal>
+        Every photo tells a story, every moment a treasure 🌹
+      </p>
+    </div>
   </section>
 
   <!-- ============================================================
@@ -209,27 +346,6 @@
     <p>💌 Love Letter — coming soon</p>
   </section>
 
-  <!-- ============================================================
-       SECTION 6 · MUSIC  (placeholder)
-  ============================================================ -->
-  <section id="music" class="section-placeholder">
-    <p>🎵 Music — coming soon</p>
-  </section>
-
-  <!-- ============================================================
-       SECTION 7 · FUN FACTS  (placeholder)
-  ============================================================ -->
-  <section id="facts" class="section-placeholder">
-    <p>✨ Fun Facts — coming soon</p>
-  </section>
-
-  <!-- ============================================================
-       SECTION 8 · SURPRISE REVEAL  (placeholder)
-  ============================================================ -->
-  <section id="surprise" class="section-placeholder">
-    <p>🎁 Surprise — coming soon</p>
-  </section>
-
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
